@@ -16,8 +16,163 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>A11Y</h2>
+					<img src="./img/a11y.png">
+					<p>Maria Ermolaeva</p>
+				</section>
+				<section>
+					<section>
+						<h2>What is web accessebility?</h2>
+					</section>
+					<section>
+						<q cite="https://www.w3.org/standards/webdesign/accessibility">
+							The power of the Web is in its universality.<br>
+							Access by everyone regardless of disability is an essential aspect.
+						</q>
+						<p>Tim Berners-Lee, W3C Director and inventor of the World Wide Web</p>
+					</section>
+					<section>
+						<h3>Social inclusion and a basic human right for access to information </h3>
+						<p>apx. 1.3 billion people – or 16% of the global population</p>
+						<img src="./img/types.png">
+						<p>Keep in mind also situational and temporal disablility cases like driving a car or broken arm etc.</p>
+					</section>
+					<section>
+						<h3>Business case</h3>
+						<ul>
+							<li>Extend Market Reach: The global estimate of the disability market is nearly <strong>$7 trillion</strong></li>
+							<li>Drive Innovation</li>
+							<li>Enhance Your Brand</li>
+							<li>Minimize Legal Risk</li>
+						</ul>
+						<a href="https://www.w3.org/WAI/business-case/">More info at W3C Web Accessibility Initiative (WAI)</a>
+					</section>		
+				</section>
+					<section>
+						<h3>How to make a website accessable?</h3>
+						<ul>
+							<li>HTML: correct and semantic elements</li>
+							<li>Proper Styling and CSS</li>
+							<li>Media accessebility</li>
+							<li>ARIA Properties</li>
+						</ul>
+					</section>
+					<section>
+						<section>
+							<h3>HTML - basis for accessebility</h3>
+						</section>
+						<section>
+							<h4>Use the correct semantic HTML elements for their intended purpose <strong>as much as possible</strong>.</h4>
+							<ul>
+								<li>Make clear and logical structure with &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;ul&gt;, &lt;footer&gt;</li>
+								<li>Why? Because screen readers can announce these tags with the same phrase and support hotkey navigation</li> 
+							</ul>		    
+						</section>
+						<section>
+							<h4>Use appropriate UI controls and Keyboard access</h4>
+							<ul>
+								<li>Use links, buttons, form elements, and labels (including the &lt;<label>&gt; element for form controls).</p>
+								<li>Place the input element inside of a label element or use the label’s for attribute</li>
+								<img src="./img/input-label.png">
+							</ul>
+						</section>
+						<section>
+							<ul>
+								<li>Buttons and Links: add more meaningful content inside link text. Don't just use "Click here"</li>
+								<img src="./img/links-bad.png" alt="bad-example"><img src="./img/links-good.png" alt="good-example">
+							</ul>
+						</section>
+						<section>
+							<ul>
+								<li>Mouse-specific events like mouseover, mouseout, dblclick should be doubled up with similar events</li>
+								<pre>
+									<code>
+										imgThumb.onmouseover = showImg;
+										imgThumb.onmouseout = hideImg;
+
+										imgThumb.onfocus = showImg;
+										imgThumb.onblur = hideImg;
+									</code>
+								</pre>
+							</ul>
+						</section>
+				    </section>
+					<section>
+						<section>
+							<h3>CSS - accessible styling</h3>
+						</section>
+						<section>
+							<h4>Font and Sizing</h4>
+							<ul>
+								<li>rem better than px to allow proper zooming </li>
+								<li>minimal font-size 18px</li>
+								<li>minimum reccomended size for touchable elements 48x48px </li>
+								<li>ensure that the elements are properly spaced out</li>
+								<li>the page is readable and functional when it is zoomed at least to 200%.</li>
+							</ul>				
+						</section>
+						<section>
+							<h4>Color</h4>
+							<ul>
+								<li>Color is not used as the sole method of conveying content or distinguishing visual elements</li>
+								<li>Text and image contrast of at least 4.5:1</li>
+								<img src="./img/color-bad.png">
+							</ul>
+						</section>
+						<section>
+							<h4>Invisible Content</h4>
+							<ul>
+								<li>provide a skip navigation link (e.g. hidden until to the user navigates to it with a keyboard)</li>
+								<li>use hidden elements only for screen-readers, e.g. label for icons or additional text for breadcrumbs (prefer position: absolute than display:none and visibility: hidden)</li>
+								<pre>
+									<code>
+										.hidden-element {
+											position:absolute;
+											left:-10000px;
+											top:auto;
+											width:1px;
+											height:1px;
+											overflow:hidden;
+										}
+									</code>
+								</pre>
+							</ul>
+						</section>
+				    </section>
+					<section>
+						<section>
+							<h3>Media accessebility</h3>
+							<ul>
+								<li>alt-attribute for img: descriptive and not repeatative (good: white dog, bad: image of dog) or empty string for decorative icons</li>
+								<li>custom audio and video controls instead of default controls, which are not keyboard-accessible</li>
+								<li>provide text-transcripts for audio and video content</li>
+							</ul>
+						</section>
+					</section>
+				<section>
+					<h3>WAI-ARIA</h3>
+					<ul>
+						<li>(Web Accessibility Initiative - Accessible Rich Internet Applications) is a specification written by the W3C</li>
+						<li>a set of additional HTML attributes</li>
+						<li>provide additional semantics and improve accessibility for custom elements</li>
+						<li>ARIA is suitable for dynamic content updates</li>
+						<p><strong>Always favor semantic HTML elements where possible</strong></p>
+						<a href="https://www.w3.org/WAI/ARIA/apg/patterns/">Details and patterns on ARIA</a>
+					</ul>
+				</section>
+				<section>
+					<h3>Standards and guidelines</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/about/#world-wide-web-consortium-w3c-web-accessibility-initiative-wai">World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI)</a></li>
+						<li><a href="https://webaim.org/standards/wcag/checklist">WebAIM's WCAG 2 Checklist</a></li>
+						<li><a href="https://www.w3.org/WAI/ER/tools/">Web Accessibility Evaluation Tools List</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">Web Accessibility</a></li>
+
+					</ul>
+				</section>
+				<section>
+				</section>
 			</div>
 		</div>
 
